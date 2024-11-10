@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: "Montserrat", sans-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg transition-all duration-200 font-medium shadow-sm hover:shadow-md;
+  }
+
+  .btn-secondary {
+    @apply bg-orange-100 hover:bg-orange-200 text-orange-600 px-6 py-2 rounded-lg transition-all duration-200 font-medium;
+  }
+
+  .btn-danger {
+    @apply bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg transition-all duration-200 font-medium;
+  }
+
+  .card {
+    @apply bg-white rounded-xl shadow-sm hover:shadow-md p-6 transition-all duration-200 border border-gray-100;
+  }
+
+  .input-field {
+    @apply border border-gray-200 rounded-lg px-4 py-3 w-full focus:outline-none focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 transition-all duration-200;
+  }
+}
