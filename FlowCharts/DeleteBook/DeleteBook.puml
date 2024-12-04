@@ -1,0 +1,20 @@
+@startuml
+!define RECTANGLE class
+
+start
+
+:Введення _id;
+if (_id існує в базі?) then (так)
+  :Видалення книги з бази даних;
+  if (Операція успішна?) then (так)
+    :enqueueSnackbar("Книга успішно видалена");
+  else (ні)
+    :enqueueSnackbar("Помилка видалення");
+  endif
+else (ні)
+  :enqueueSnackbar("Книга з таким _id не знайдена");
+endif
+
+stop
+
+@enduml
