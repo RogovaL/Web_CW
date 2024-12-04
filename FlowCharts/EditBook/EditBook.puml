@@ -1,0 +1,28 @@
+@startuml
+!define RECTANGLE class
+
+start
+
+:Введення _id, title, author, publishYear;
+if (_id існує в базі?) then (так)
+  if (Всі поля заповнені?) then (так)
+    if (publishYear валідний?) then (так)
+      :Оновлення книги в базі даних;
+      if (Операція успішна?) then (так)
+        :enqueueSnackbar("Книга успішно оновлена");
+      else (ні)
+        :enqueueSnackbar("Помилка оновлення");
+      endif
+    else (ні)
+      :enqueueSnackbar("Рік некоректний");
+    endif
+  else (ні)
+    :enqueueSnackbar("Поля не заповнені");
+  endif
+else (ні)
+  :enqueueSnackbar("Книга з таким _id не знайдена");
+endif
+
+stop
+
+@enduml
