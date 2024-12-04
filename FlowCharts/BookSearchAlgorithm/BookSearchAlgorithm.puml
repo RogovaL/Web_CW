@@ -1,0 +1,26 @@
+
+@startuml
+!define RECTANGLE class
+
+start
+
+:Введення title, author, publishYear;
+if (Всі поля заповнені?) then (так)
+  if (publishYear валідний?) then (так)
+    :Генерація _id;
+    :Додавання книги до бази;
+    if (Операція успішна?) then (так)
+      :enqueueSnackbar("Книга додана успішно");
+    else (ні)
+      :enqueueSnackbar("Помилка додавання");
+    endif
+  else (ні)
+    :enqueueSnackbar("Рік некоректний");
+  endif
+else (ні)
+  :enqueueSnackbar("Поля не заповнені");
+endif
+
+stop
+
+@enduml
