@@ -1,0 +1,20 @@
+@startuml
+actor Administrator as Admin
+
+rectangle UseCases {
+    usecase "Додавання нової книги" as UC_AddBook
+    usecase "Редагування книги" as UC_EditBook
+    usecase "Видалення книги" as UC_DeleteBook
+    usecase "Перегляд книги" as UC_ViewBook
+}
+
+Admin --> UC_AddBook
+Admin --> UC_EditBook
+Admin --> UC_DeleteBook
+Admin --> UC_ViewBook
+
+UC_AddBook --> UC_ViewBook : include
+UC_EditBook --> UC_ViewBook : include
+UC_DeleteBook --> UC_ViewBook : include
+
+@enduml
