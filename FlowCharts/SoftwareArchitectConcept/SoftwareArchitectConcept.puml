@@ -1,0 +1,44 @@
+@startuml
+
+title UML-діаграма розгортання ПП "Книжковий магазин"
+
+left to right direction
+
+skinparam componentStyle uml1
+
+node "<<Компʼютер, Смартфон>>" as client {
+  node "<<OC Windows, macOS, Android, iOS>>" {
+    node "<<Веб-навігатор>>" {
+      component [".js\n (React)"]
+    }
+  }
+}
+
+interface Клавіатура
+interface Миша
+interface Сенсорний_екран
+
+Клавіатура -- client
+Миша -- client
+Сенсорний_екран -- client
+
+node "<<Сервер 1>>" as server1 {
+  node "<<OC Linux>>" {
+    node "<<Node.js>>" {
+      component [Backend API\n(Express.js)]
+    }
+  }
+}
+
+node "<<Сервер 2>>" as server2 {
+  node "<<OC Linux>>" {
+    node "<<MongoDB>>" {
+      database [Book Collection]
+    }
+  }
+}
+
+client --> server1 : HTTP-запити
+server1 --> server2 : CRUD-запити до бази даних
+
+@enduml
